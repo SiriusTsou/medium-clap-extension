@@ -1,0 +1,27 @@
+{
+  "name": "Medium Clap",
+  "version": "1.0",
+  "description": "Make more Medium claps",
+  "manifest_version": 2,
+  "permissions": [
+    "webRequest", 
+    "debugger", 
+    "storage", 
+    "https://medium.com/*", 
+    "https://*.medium.com/*"
+  ],
+  "icons": {
+    "16": "static/icon.png",
+    "128": "static/icon128.png"
+  },
+  "browser_action": {
+    "default_icon": "static/icon.png",
+    "default_title": "Medium Clap",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "run_at": "document_start",
+    "matches": ["https://medium.com/*", "https://*.medium.com/*"],
+    "js": ["content.js"]
+  }]
+}
